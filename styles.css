@@ -1,0 +1,370 @@
+:root {
+    --primary-color: #6c5ce7;
+    --primary-light: #a29bfe;
+    --primary-dark: #5641e5;
+    --secondary-color: #00b894;
+    --accent-color: #fd79a8;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --text-primary: #2d3436;
+    --text-secondary: #636e72;
+    --border-color: #dfe6e9;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+    --radius-lg: 12px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.game-container {
+    background-color: var(--card-background);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    position: relative;
+    min-height: 500px;
+}
+
+.section {
+    display: none;
+    padding: 2rem;
+}
+
+.section.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* Setup Section */
+.rounds-selector {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.rounds-selector label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.rounds-selector input {
+    width: 100%;
+    max-width: 200px;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.rounds-selector input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Play Section */
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--background-color);
+    border-radius: var(--radius);
+}
+
+.round-info, .score-info {
+    font-weight: 500;
+}
+
+.score-info {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.score-item span:last-child {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.choices-container {
+    margin-bottom: 2rem;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    width: 120px;
+}
+
+.choice:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.choice.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(108, 92, 231, 0.1);
+}
+
+.choice-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+}
+
+.choice span {
+    font-weight: 500;
+}
+
+.result-container {
+    background-color: var(--background-color);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
+
+.selections {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.selection-box {
+    text-align: center;
+    flex: 1;
+}
+
+.selection-box h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.selection-display {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    background-color: var(--card-background);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.vs {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin: 0 1rem;
+}
+
+.round-result {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 0.75rem;
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+
+.round-result.win {
+    background-color: rgba(0, 184, 148, 0.2);
+    color: var(--secondary-color);
+}
+
+.round-result.lose {
+    background-color: rgba(253, 121, 168, 0.2);
+    color: var(--accent-color);
+}
+
+.round-result.tie {
+    background-color: rgba(99, 110, 114, 0.2);
+    color: var(--text-secondary);
+}
+
+/* Game Over Section */
+.final-result {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.final-score {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.winner-message {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem;
+    border-radius: var(--radius);
+    background-color: rgba(108, 92, 231, 0.1);
+    color: var(--primary-color);
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .section {
+        padding: 1.5rem;
+    }
+
+    .choices {
+        gap: 1rem;
+    }
+
+    .choice {
+        width: 100px;
+        padding: 1rem;
+    }
+
+    .selection-display {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .vs {
+        font-size: 1.25rem;
+    }
+
+    .final-score {
+        gap: 2rem;
+        font-size: 1.1rem;
+    }
+
+    .winner-message {
+        font-size: 1.25rem;
+    }
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.choice.selected .choice-icon {
+    animation: pulse 1s infinite;
+}
+
+.selection-display.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+    animation: pulse 1s infinite;
+}
